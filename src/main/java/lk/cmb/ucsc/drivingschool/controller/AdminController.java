@@ -21,11 +21,13 @@ public class AdminController {
         return "admin/admin";
     }
 
+
     @GetMapping("signup/student")
-    public String signupStudent(){
-        System.out.println(genarateId.genarateID());
+    public String signupStudent(Model model){
+        model.addAttribute("user",new User());
         return "admin/signupStudent";
     }
+
     @GetMapping("signup/teacher")
     public String signupTeacher(){
         return "admin/signupTeacher";
@@ -34,8 +36,13 @@ public class AdminController {
 
 
    @PostMapping("signup/student")
-    public void signin (@ModelAttribute User user, Model model){
-        System.out.println(user);
+    public String signin (@ModelAttribute User user, Model model){
+        String id=genarateId.genarateID();
+        user.setId(id);
+        user.setPassword("ucsc@123");
+        user.setUsername("user"+id);
+        user.setRoles("USER");
         userService.createUser(user);
+        return "admin/admin";
     }
 }

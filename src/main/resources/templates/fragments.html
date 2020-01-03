@@ -25,7 +25,7 @@
                     <a class="nav-link" href="#" th:href="@{~/api/teacher}">Teacher</a>
                 </li>
                 <li sec:authorize="hasRole('ADMIN')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/api/admin}">Admin</a>
+                    <a class="nav-link" href="#" th:href="@{~/api/admin/}">Admin</a>
                 </li>
                 <li sec:authorize="hasRole('ADMIN')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/api/admin/signup/student}">Register Student</a>
