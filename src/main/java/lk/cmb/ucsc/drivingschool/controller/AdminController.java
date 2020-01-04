@@ -29,19 +29,30 @@ public class AdminController {
     }
 
     @GetMapping("signup/teacher")
-    public String signupTeacher(){
+    public String signupTeacher(Model model) {
+        model.addAttribute("user",new User());
         return "admin/signupTeacher";
     }
 
 
 
    @PostMapping("signup/student")
-    public String signin (@ModelAttribute User user, Model model){
+    public String signinStudent (@ModelAttribute User user, Model model){
         String id=genarateId.genarateID();
         user.setId(id);
         user.setPassword("ucsc@123");
         user.setUsername("user"+id);
         user.setRoles("USER");
+        userService.createUser(user);
+        return "admin/admin";
+    }
+    @PostMapping("signup/teacher")
+    public String signinTeacher (@ModelAttribute User user, Model model){
+        String id=genarateId.genarateID();
+        user.setId(id);
+        user.setPassword("ucsc@123");
+        user.setUsername("teacher"+id);
+        user.setRoles("TEACHER");
         userService.createUser(user);
         return "admin/admin";
     }

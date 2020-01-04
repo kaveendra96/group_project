@@ -6,6 +6,37 @@
 </head>
 <header th:insert="fragments.html::nav"></header>
 <body>
-<h2>teacher signup</h2>
+<h2>Teacher signup</h2>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/api/admin/signup/teacher}" th:object="${user}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="firstname" class="col-form-label">first name</label> <input
+                                type="text" th:field="*{firstname}" class="form-control" id="firstname"
+                                placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="lastname" class="col-form-label">lastname</label> <input
+                                type="text" th:field="*{lastname}" class="form-control" id="lastname"
+                                placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="age" class="col-form-label">age</label> <input
+                                type="text" th:field="*{age}" class="form-control" id="age"
+                                placeholder="Name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value="Add User">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
