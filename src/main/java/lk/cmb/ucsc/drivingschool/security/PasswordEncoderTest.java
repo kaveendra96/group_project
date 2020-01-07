@@ -2,7 +2,7 @@ package lk.cmb.ucsc.drivingschool.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class PasswordEncoderTest implements PasswordEncoder {
+public class PasswordEnconderTest implements PasswordEncoder {
     @Override
     public String encode(CharSequence charSequence) {
         return charSequence.toString();

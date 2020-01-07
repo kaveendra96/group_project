@@ -4,6 +4,7 @@ import lk.cmb.ucsc.drivingschool.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,8 +32,8 @@ public class UserPrincipal implements UserDetails {
     }
 
     @Override
-    public String getPassword() {
-        return this.user.getPassword();
+    public String getPassword() throws UsernameNotFoundException {
+                return this.user.getPassword();
     }
 
     @Override

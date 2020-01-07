@@ -11,5 +11,4 @@ public interface UserRepo extends MongoRepository<User,Long> {
     public User findByFirstname(String firstname);
     public User findByUsername(String username);
     public User findTopByOrderByIdDesc();
-
 }

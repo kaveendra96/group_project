@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
 @RequestMapping("/api/admin/")
 public class AdminController {
@@ -28,6 +29,7 @@ public class AdminController {
         return "admin/signupStudent";
     }
 
+
     @GetMapping("signup/teacher")
     public String signupTeacher(Model model) {
         model.addAttribute("user",new User());
@@ -46,6 +48,7 @@ public class AdminController {
         userService.createUser(user);
         return "admin/admin";
     }
+
     @PostMapping("signup/teacher")
     public String signinTeacher (@ModelAttribute User user, Model model){
         String id=genarateId.genarateID();
@@ -56,4 +59,5 @@ public class AdminController {
         userService.createUser(user);
         return "admin/admin";
     }
+
 }

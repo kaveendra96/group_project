@@ -28,13 +28,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
+                .loginPage("/login")
+                .failureUrl("/login?error")
                 .usernameParameter("txtUsername")
                 .passwordParameter("txtPassword")
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-                .and()
-                .csrf().disable();
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+//                .formLogin()
+//                .loginPage("/login").permitAll()
+//                .usernameParameter("txtUsername")
+//                .passwordParameter("txtPassword")
+//                .and()
+//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+//                .and()
+//                .csrf().disable();
     }
     @Bean
     DaoAuthenticationProvider authenticationProvider(){
