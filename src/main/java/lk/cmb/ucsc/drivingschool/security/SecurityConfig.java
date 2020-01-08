@@ -34,14 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("txtPassword")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
-//                .formLogin()
-//                .loginPage("/login").permitAll()
-//                .usernameParameter("txtUsername")
-//                .passwordParameter("txtPassword")
-//                .and()
-//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
-//                .and()
-//                .csrf().disable();
+
     }
     @Bean
     DaoAuthenticationProvider authenticationProvider(){
