@@ -64,6 +64,7 @@ public class AdminController {
     public String studentCrud(){
         return "admin/studentCrud";
     }
+
     @GetMapping("teacher/crud")
     public String teachercrud(){
         return "admin/teacherCrud";
