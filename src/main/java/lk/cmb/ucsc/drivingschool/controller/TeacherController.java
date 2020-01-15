@@ -15,4 +15,9 @@ public class TeacherController {
     public String teacherform(){
         return "teacher/teacherform.html";
     }
+
+    @RequestMapping("/api/profile.html")
+    public String profile(){
+        return "teacher/profile.html";
+    }
 }
