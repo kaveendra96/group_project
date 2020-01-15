@@ -10,4 +10,9 @@ public class TeacherController {
     public String teacher(){
         return "teacher/index";
     }
+
+    @RequestMapping("/api/teacherform.html")
+    public String teacherform(){
+        return "teacher/teacherform.html";
+    }
 }
