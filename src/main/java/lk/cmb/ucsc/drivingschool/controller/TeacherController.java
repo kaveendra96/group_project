@@ -20,4 +20,20 @@ public class TeacherController {
     public String profile(){
         return "teacher/profile.html";
     }
+
+    @RequestMapping("/api/lession.html")
+    public String lession(){
+        return "teacher/lession.html";
+    }
+
+    @RequestMapping("/api/vehicle.html")
+    public String vehicle(){
+        return "teacher/vehicle.html";
+    }
+
+    @RequestMapping("/api/mystudent.html")
+    public String mystudent(){ return "teacher/mystudent.html"; }
+
+    @RequestMapping("/api/rating.html")
+    public String rating(){ return "teacher/rating.html"; }
 }
