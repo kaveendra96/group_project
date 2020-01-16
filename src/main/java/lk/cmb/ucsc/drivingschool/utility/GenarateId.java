@@ -1,6 +1,5 @@
 package lk.cmb.ucsc.drivingschool.utility;
 
-
 import lk.cmb.ucsc.drivingschool.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
