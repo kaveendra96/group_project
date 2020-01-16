@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -53,10 +53,10 @@
                         <h3>General</h3>
                         <ul class="nav side-menu">
 
-                            <li><a href="mystudent.html"><i class="fa fa-users"></i>My Students</a></li>
-                            <li><a href="vehicle.html"><i class="fa fa-clone"></i>My Vehicles</a></li>
-                            <li><a href="lession.html"><i class="fa fa-edit"></i>Lessions</a></li>
-                            <li><a href="rating.html"><i class="fa fa-bar-chart-o"></i>Rating</a></li>
+                            <li><a href="student/crud"><i class="fa fa-users"></i>My Students</a></li>
+                            <li><a href="student/crud"><i class="fa fa-clone"></i>My Vehicles</a></li>
+                            <li><a href="calendar.html"><i class="fa fa-edit"></i>Lessions</a></li>
+                            <li><a href="student/crud"><i class="fa fa-bar-chart-o"></i>Rating</a></li>
                             <li><a href="teacherform.html"><i class="fa fa-desktop"></i>Reviews</a></li>
 
                         </ul>
@@ -80,7 +80,7 @@
                                 <img src="/images/img.jpg" alt="">Trainer
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"  href="profile.html"> Profile</a>
+                                <a class="dropdown-item"  href="javascript:;"> Profile</a>
                                 <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                             </div>
                         </li>
@@ -91,16 +91,74 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="container">
 
-            <h1>Trainer page</h1>
-            <style>
-                img {
-                    max-width: 100%;
-                }
-            </style>
+            <h2>Product Details</h2>
+            <div>
 
-            <img src="/images/slide-7.jpg" alt="" width=1350; height=550;>
+            <form class="form-horizontal" th:object="${productForm}" th:action="@{/product}" method="post">
+
+                <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                    <p th:text="${#fields.hasErrors}">Error Message</p>
+                </div>
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <div class="form-group" th:class="${#fields.hasErrors('name')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{name}" th:errorclass="has-error"  placeholder="Enter Name"/>
+
+                        <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group" th:class="${#fields.hasErrors('competence')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Competence:</label>
+                    <div class="col-sm-10">
+                        <input type="text" min="0" max="5000" step="0.01" class="form-control" th:field="*{competence}" th:errorclass="has-error"  placeholder="Enter Competence"/>
+
+                        <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('competence')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group" th:class="${#fields.hasErrors('attendence')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Attendence:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{attendence}" th:errorclass="has-error"  placeholder="Enter Attendence"/>
+
+                        <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('attendence')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group" th:class="${#fields.hasErrors('comment')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Comment:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="3" th:field="*{comment}" th:errorclass="has-error"  placeholder="Add a Comment"/>
+
+                        <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('comment')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
 
         </div>
 
