@@ -99,7 +99,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <h2>Student Details</h2>
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:object="${teacherForm}" th:action="@{/teacher}" method="post">
 
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Name <span class="required">*</span>
