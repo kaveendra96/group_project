@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -20,12 +20,6 @@
 
     <!-- Custom styling plus plugins -->
     <link href="/css/custom.min.css" rel="stylesheet">
-
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-
-    <link href="../../static/css/spring-core.css"
-          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
 </head>
 
 <body class="nav-md">
@@ -98,54 +92,10 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <h2>Student Details</h2>
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:object="${teacherForm}" th:action="@{/teacher}" method="post">
-
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Name <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="name" required="required" class="form-control ">
-                    </div>
-                </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="competence">Competence <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="competence" name="competence" required="required" class="form-control">
-                    </div>
-                </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="attendence">Present/Absent <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="attendence" name="attendence" required="required" class="form-control">
-                    </div>
-                </div>
-
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="comment">Comment<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <textarea type="text" id="comment" name="comment" required="required"class="resizable_textarea form-control" placeholder="Add a Comment"></textarea>
-                    </div>
-                </div>
-
-                <div class="ln_solid"></div>
-                <div class="item form-group">
-                    <div class="col-md-6 col-sm-6 offset-md-3">
-                        <button class="btn btn-primary" type="button">Cancel</button>
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-
-            </form>
-
+        <h2>view the students names</h2>
         </div>
 
-            <!-- /page content -->
-
-
+        <!-- /page content -->
 
         <!-- Footer -->
         <footer class="footer text-center">
@@ -189,7 +139,7 @@
         <!-- /footer content -->
     </div>
 </div>
-</div>
+
 
 
 <!-- jQuery -->
