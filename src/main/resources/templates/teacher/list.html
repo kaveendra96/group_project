@@ -114,7 +114,7 @@
                         <td th:text="${teacher.comment}"></td>
                         <td><a th:href="${'/teacher/show/' + teacher.id.toHexString()}">View</a> </td>
                         <td><a th:href="${'/teacher/edit/' + teacher.id.toHexString()}">Edit</a> </td>
-                        <td><a th:href="${'/teacher/delete/' + teacher.id.toHexString()}">Delete</a> </td>
+                        <td><a th:href="${'/teacher/delete/' + teacher.id.toHexString()}" onclick="return confirm('Are you sure? You want to delete this?')">Delete</a> </td>
                     </tr>
                 </table>
             </div>
