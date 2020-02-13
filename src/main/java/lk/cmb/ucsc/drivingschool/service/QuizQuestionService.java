@@ -11,10 +11,10 @@ public class QuizQuestionService {
     private QuizQuestionRepo quizquestionRepo;
 
     //create new question
-    public QuizQuestion createQuizQuestion(QuizQuestion quizquestion){
+    public QuizQuestion create(QuizQuestion quizquestion){
         return quizquestionRepo.save(quizquestion);
     }
-    public QuizQuestion getByID(String id){
+    public QuizQuestion getById(String id){
         return quizquestionRepo.findById(id);
     }
 
@@ -22,6 +22,19 @@ public class QuizQuestionService {
     public void delete(String id){
         QuizQuestion quizquestion=quizquestionRepo.findById(id);
         quizquestionRepo.delete(quizquestion);
+    }
+
+    //update question
+    public QuizQuestion updateQuestion(String id, String question){
+        QuizQuestion quizquestion=quizquestionRepo.findById(id);
+        quizquestion.setCorrect(question);
+        return quizquestionRepo.save(quizquestion);
+    }
+
+    public QuizQuestion updateAnswer(String id, String correct){
+        QuizQuestion quizquestion=quizquestionRepo.findById(id);
+        quizquestion.setCorrect(correct);
+        return quizquestionRepo.save(quizquestion);
     }
 
 
