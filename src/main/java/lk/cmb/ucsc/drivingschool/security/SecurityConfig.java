@@ -18,7 +18,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public SecurityConfig(UserPrincipalDetailsService userPrincipalDetailsService) {
         this.userPrincipalDetailsService = userPrincipalDetailsService;
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -34,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("txtPassword")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
-
     }
     @Bean
     DaoAuthenticationProvider authenticationProvider(){
@@ -50,8 +48,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        return new BCryptPasswordEncoder();
         return new PasswordEncoderTest();
     }
-
-
-
-
 }
