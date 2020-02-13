@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -92,13 +92,96 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-        <h2>views the vehicles</h2>
+
+            <div th:if="${not #lists.isEmpty(teachers)}">
+                <h2>Student List</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Competence</th>
+                        <th>Attendence</th>
+                        <th>Comment</th>
+                        <th>List</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr th:each="teacher : ${teachers}">
+                        <td th:text="${teacher.id.toHexString()}"></td>
+                        <td th:text="${teacher.name}"></td>
+                        <td th:text="${teacher.competence}"></td>
+                        <td th:text="${teacher.attendence}"></td>
+                        <td th:text="${teacher.comment}"></td>
+                        <td><a th:href="${'/teacher/show/' + teacher.id.toHexString()}">View</a> </td>
+                        <td><a th:href="${'/teacher/edit/' + teacher.id.toHexString()}">Edit</a> </td>
+                        <td><a th:href="${'/teacher/delete/' + teacher.id.toHexString()}" onclick="return confirm('Are you sure? You want to delete this?')">Delete</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/teacher/new">Add New Students</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <style>
+                    img {
+                        max-width: 100%;
+                    }
+                </style>
+
+                <img src="" alt="" width=1350; height=550;>
+            </div>
+
         </div>
 
         <!-- /page content -->
 
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Location -->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">22,Upper dickson road,
+                            <br>Galle, Sri Lanka.</p>
+                    </div>
+
+                    <!-- Footer Social Icons -->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                            <i class="fab fa-fw fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                            <i class="fab fa-fw fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                            <i class="fab fa-fw fa-dribbble"></i>
+                        </a>
+                    </div>
+
+                    <!-- Footer About Text -->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+        <!-- /footer content -->
     </div>
 </div>
+
+
 
 <!-- jQuery -->
 <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
@@ -118,11 +201,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
