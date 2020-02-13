@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 
 @Document  // demo document is there in the database
-public class Quiz {
+public class QuizQuestion {
     @Id
     private String id;
     private String question;
@@ -18,7 +18,7 @@ public class Quiz {
     private String incorrect2;
     private String incorrect3;
 
-    public Quiz() {
+    public QuizQuestion() {
         this.id = id;
         this.question = question;
         this.correct = correct;
