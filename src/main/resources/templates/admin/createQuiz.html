@@ -29,7 +29,7 @@
 
 <div class="right_col" role="main">
     <h2>Quiz Question</h2>
-    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post"> //action to be created
+    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  th:object="${quizquestion}" method="post"> //action to be created
 
 
         <input type="hidden" th:field="*{id}"/>
