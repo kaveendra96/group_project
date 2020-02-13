@@ -63,7 +63,7 @@
                             <li><a href="vehicle.html"><i class="fa fa-clone"></i>My Vehicles</a></li>
                             <li><a href="lession.html"><i class="fa fa-edit"></i>Lessions</a></li>
                             <li><a href="rating.html"><i class="fa fa-bar-chart-o"></i>Rating</a></li>
-                            <li><a href="teacherform.html"><i class="fa fa-desktop"></i>Reviews</a></li>
+                            <li><a href="list.html"><i class="fa fa-desktop"></i>Reviews</a></li>
 
                         </ul>
                     </div>
@@ -101,32 +101,45 @@
             <h2>Student Details</h2>
             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:object="${teacherForm}" th:action="@{/teacher}" method="post">
 
-                <div class="item form-group">
+               <!-- <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                    <p th:text="${#fields.hasErrors}">Error Message</p>
+                </div> -->
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <div class="item form-group" >
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Name <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="name" required="required" class="form-control ">
+                        <input type="text" id="name" name="name" th:field="*{name}" placeholder="Enter Name" required="required" class="form-control ">
+
+                       <!-- <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
+                       </ul>
+                    </span>-->
+
                     </div>
                 </div>
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="competence">Competence <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="competence" name="competence" required="required" class="form-control">
+                        <input type="text" id="competence" name="competence" th:field="*{competence}" required="required" class="form-control">
                     </div>
                 </div>
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="attendence">Present/Absent <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="attendence" name="attendence" required="required" class="form-control">
+                        <input type="text" id="attendence" name="attendence" th:field="*{attendence}" required="required" class="form-control">
                     </div>
                 </div>
 
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="comment">Comment<span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 ">
-                        <textarea type="text" id="comment" name="comment" required="required"class="resizable_textarea form-control" placeholder="Add a Comment"></textarea>
+                        <textarea type="text" id="comment" name="comment" th:field="*{comment}" required="required"class="resizable_textarea form-control" placeholder="Add a Comment"></textarea>
                     </div>
                 </div>
 
@@ -140,7 +153,6 @@
                 </div>
 
             </form>
-
         </div>
 
             <!-- /page content -->
