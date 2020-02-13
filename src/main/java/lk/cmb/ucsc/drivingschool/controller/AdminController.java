@@ -1,6 +1,8 @@
 package lk.cmb.ucsc.drivingschool.controller;
 
+import lk.cmb.ucsc.drivingschool.model.Email;
 import lk.cmb.ucsc.drivingschool.model.User;
+import lk.cmb.ucsc.drivingschool.service.MailSenderService;
 import lk.cmb.ucsc.drivingschool.service.UserService;
 import lk.cmb.ucsc.drivingschool.utility.GenarateId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
 @RequestMapping("/api/admin/")
-public class AdminController {
+public class  AdminController {
+
+
+    @Autowired
+    private MailSenderService senderService;
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -22,21 +28,17 @@ public class AdminController {
         return "admin/admin";
     }
 
-
     @GetMapping("signup/student")
     public String signupStudent(Model model){
         model.addAttribute("user",new User());
-        return "admin/signupStudent";
+        return "signupStudent";
     }
-
 
     @GetMapping("signup/teacher")
     public String signupTeacher(Model model) {
         model.addAttribute("user",new User());
-        return "admin/signupTeacher";
+        return "admin/signupStudent";
     }
-
-
 
    @PostMapping("signup/student")
     public String signinStudent (@ModelAttribute User user, Model model){
@@ -70,5 +72,11 @@ public class AdminController {
         return "admin/teacherCrud";
     }
 
+    @GetMapping("email")
+    public String emailSend() throws Exception {
+        Email email=new Email("newkavindu@gmail.com","nothing","testing dor email");
+        senderService.sendSimpleMail(email);
+        return "admin/admin";
+    }
 
 }
