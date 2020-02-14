@@ -25,34 +25,34 @@ public class TeacherController {
         return "teacher/index";
     }
 
-    @RequestMapping("/teacher/list.html")
+    @RequestMapping("/api/list.html")
     public String list(){
         return "teacher/list";
     }
 
-    @RequestMapping("/teacher/profile.html")
+    @RequestMapping("/api/profile.html")
     public String profile(){
         return "teacher/profile";
     }
 
-    @RequestMapping("/teacher/lession.html")
+    @RequestMapping("/api/lession.html")
     public String lession(){
         return "teacher/lession";
     }
 
-    @RequestMapping("/teacher/vehicle.html")
+    @RequestMapping("/api/vehicle.html")
     public String vehicle(){
         return "teacher/vehicle";
     }
 
-    @RequestMapping("/teacher/mystudent.html")
+    @RequestMapping("/api/mystudent.html")
     public String mystudent(){ return "teacher/mystudent"; }
 
-    @RequestMapping("/teacher/rating.html")
+    @RequestMapping("/api/rating.html")
     public String rating(){ return "teacher/rating"; }
 
-    /*@RequestMapping("teacher/login")
-    public String logout(){ return "login"; } */
+    @RequestMapping("api/login")
+    public String logout(){ return "login"; }
 
     private TeacherService teacherService;
 
