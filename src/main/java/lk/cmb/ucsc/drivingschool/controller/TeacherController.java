@@ -51,8 +51,8 @@ public class TeacherController {
     @RequestMapping("/teacher/rating.html")
     public String rating(){ return "teacher/rating"; }
 
-    @RequestMapping("/teacher/login.html")
-    public String logout(){ return "login"; }
+    /*@RequestMapping("teacher/login")
+    public String logout(){ return "login"; } */
 
     private TeacherService teacherService;
 
@@ -68,10 +68,10 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String redirToList(){
         return "redirect:/teacher/list";
-    }
+    }*/
 
     @RequestMapping({"/teacher/list", "/teacher"})
     public String listTeachers(Model model){
