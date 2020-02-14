@@ -10,4 +10,5 @@ public class DrivingSchoolApplication {
 		SpringApplication.run(DrivingSchoolApplication.class, args);
 	}
 
+
 }
