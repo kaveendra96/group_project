@@ -25,33 +25,33 @@ public class TeacherController {
         return "teacher/index";
     }
 
-    @RequestMapping("/teacher/list.html")
+    @RequestMapping("/api/list.html")
     public String list(){
         return "teacher/list";
     }
 
-    @RequestMapping("/teacher/profile.html")
+    @RequestMapping("/api/profile.html")
     public String profile(){
         return "teacher/profile";
     }
 
-    @RequestMapping("/teacher/lession.html")
+    @RequestMapping("/api/lession.html")
     public String lession(){
         return "teacher/lession";
     }
 
-    @RequestMapping("/teacher/vehicle.html")
+    @RequestMapping("/api/vehicle.html")
     public String vehicle(){
         return "teacher/vehicle";
     }
 
-    @RequestMapping("/teacher/mystudent.html")
+    @RequestMapping("/api/mystudent.html")
     public String mystudent(){ return "teacher/mystudent"; }
 
-    @RequestMapping("/teacher/rating.html")
+    @RequestMapping("/api/rating.html")
     public String rating(){ return "teacher/rating"; }
 
-    @RequestMapping("/teacher/login.html")
+    @RequestMapping("api/login")
     public String logout(){ return "login"; }
 
     private TeacherService teacherService;
@@ -68,10 +68,10 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String redirToList(){
         return "redirect:/teacher/list";
-    }
+    }*/
 
     @RequestMapping({"/teacher/list", "/teacher"})
     public String listTeachers(Model model){
