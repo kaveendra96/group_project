@@ -73,9 +73,9 @@ public class QuizQuestion {
         this.incorrect3 = incorrect3;
     }
 
-    public String[] QuizQuestion(String id){
+    /*public String[] QuizQuestion(String id){
         String[] QuizQuestionArr={id,question,correct,incorrect1,incorrect2,incorrect3};
-        return QuizQuestionArr;
+        return QuizQuestionArr;*/
     }
 
     /* -----might need later------
@@ -104,4 +104,4 @@ public class QuizQuestion {
 
 
 
-}
+
